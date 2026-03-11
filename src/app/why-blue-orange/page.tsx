@@ -13,7 +13,7 @@ function HeadshotPlaceholder({ initials, large }: { initials: string; large?: bo
   const text = large ? "text-2xl" : "text-lg";
   return (
     <div
-      className={`${size} rounded-full bg-gradient-to-br from-orange/80 to-dbricks/80 flex items-center justify-center ring-4 ring-white shadow-lg`}
+      className={`${size} rounded-full bg-gradient-to-br from-dbricks/80 to-amber/80 flex items-center justify-center ring-4 ring-white shadow-lg`}
     >
       <span className={`text-white font-bold ${text}`}>{initials}</span>
     </div>
@@ -22,10 +22,10 @@ function HeadshotPlaceholder({ initials, large }: { initials: string; large?: bo
 
 /* ── Differentiator Icon helpers ───────────────────────────────── */
 function DiffIcon({ children, color = "orange" }: { children: React.ReactNode; color?: string }) {
-  const bg = color === "dbricks" ? "bg-dbricks/10" : color === "navy" ? "bg-navy/10" : "bg-orange/10";
-  const tc = color === "dbricks" ? "text-dbricks" : color === "navy" ? "text-navy-300" : "text-orange";
+  const bg = color === "dbricks" ? "bg-dbricks/10" : color === "amber" ? "bg-amber/10" : "bg-orange/10";
+  const tc = color === "dbricks" ? "text-dbricks" : color === "amber" ? "text-amber" : "text-orange";
   return (
-    <div className={`w-14 h-14 rounded-2xl ${bg} flex items-center justify-center shrink-0`}>
+    <div className={`w-14 h-14 rounded-md ${bg} flex items-center justify-center shrink-0`}>
       <svg className={`w-7 h-7 ${tc}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
         {children}
       </svg>
@@ -73,22 +73,23 @@ export default function WhyBlueOrange() {
   return (
     <>
       {/* ── HERO ─────────────────────────────────────────────────── */}
-      <section className="relative gradient-hero overflow-hidden">
+      <section className="relative bg-dark overflow-hidden">
+        {/* Dot grid overlay */}
+        <div className="absolute inset-0 dot-grid" />
+        {/* Subtle glows */}
         <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute -top-40 -right-40 w-96 h-96 rounded-full bg-orange/5 blur-3xl" />
-          <div className="absolute -bottom-40 -left-40 w-96 h-96 rounded-full bg-dbricks/5 blur-3xl" />
+          <div className="absolute -top-40 -right-40 w-96 h-96 rounded-full bg-dbricks/5 blur-3xl" />
+          <div className="absolute -bottom-40 -left-40 w-96 h-96 rounded-full bg-amber/5 blur-3xl" />
         </div>
         <div className="relative container-max section-padding pt-24 sm:pt-32 lg:pt-40 pb-16">
-          <p className="text-sm font-semibold text-orange uppercase tracking-wider mb-4">
-            Why Partner With Us
-          </p>
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white max-w-4xl leading-[1.1] mb-6">
+          <div className="section-label mb-4">Why Partner With Us</div>
+          <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white max-w-4xl leading-[1.1] mb-6">
             Why Databricks AEs Choose{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange to-dbricks">
               Blue Orange
             </span>
           </h1>
-          <p className="text-lg sm:text-xl text-white/60 max-w-2xl leading-relaxed">
+          <p className="text-lg sm:text-xl text-white/50 max-w-2xl leading-relaxed">
             Boutique agility, big consulting credibility, and a relentless focus on helping you close faster.
           </p>
         </div>
@@ -100,12 +101,12 @@ export default function WhyBlueOrange() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
             {/* Oliver Wyman */}
             <div className="flex gap-5">
-              <DiffIcon>
+              <DiffIcon color="amber">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
               </DiffIcon>
               <div>
-                <h3 className="text-xl font-bold text-navy mb-2">Backed by Oliver Wyman</h3>
-                <p className="text-navy-200 leading-relaxed">
+                <h3 className="text-xl font-bold text-dark mb-2">Backed by Oliver Wyman</h3>
+                <p className="text-muted leading-relaxed">
                   Boutique bones with big consulting credibility. We combine the agility and technical depth of a specialist firm with the strategic rigor and enterprise trust of a global management consultancy.
                 </p>
               </div>
@@ -117,8 +118,8 @@ export default function WhyBlueOrange() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
               </DiffIcon>
               <div>
-                <h3 className="text-xl font-bold text-navy mb-2">Private Equity DNA</h3>
-                <p className="text-navy-200 leading-relaxed">
+                <h3 className="text-xl font-bold text-dark mb-2">Private Equity DNA</h3>
+                <p className="text-muted leading-relaxed">
                   Deep experience with PE-backed mid-market growth companies. We understand the portfolio operating model, EBITDA-driven prioritization, and accelerated timelines PE firms demand.
                 </p>
               </div>
@@ -130,8 +131,8 @@ export default function WhyBlueOrange() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
               </DiffIcon>
               <div>
-                <h3 className="text-xl font-bold text-navy mb-2">Databricks-First Architecture</h3>
-                <p className="text-navy-200 leading-relaxed">
+                <h3 className="text-xl font-bold text-dark mb-2">Databricks-First Architecture</h3>
+                <p className="text-muted leading-relaxed">
                   We&apos;re committed advocates of Lakebase, AI/BI, and Mosaic AI. Not a Snowflake shop moonlighting on Databricks. We build on the Lakehouse — period.
                 </p>
               </div>
@@ -143,22 +144,22 @@ export default function WhyBlueOrange() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" />
               </DiffIcon>
               <div>
-                <h3 className="text-xl font-bold text-navy mb-2">Executive Accessibility</h3>
-                <p className="text-navy-200 leading-relaxed">
-                  Our CEO, CTO, VP of Data & AI, and VP of Engineering personally attend client meetings, co-sponsor events, and are available for in-person relationship building.
+                <h3 className="text-xl font-bold text-dark mb-2">Executive Accessibility</h3>
+                <p className="text-muted leading-relaxed">
+                  Our CEO, CTO, VP of Data &amp; AI, and VP of Engineering personally attend client meetings, co-sponsor events, and are available for in-person relationship building.
                 </p>
               </div>
             </div>
 
             {/* NYC & DC */}
             <div className="flex gap-5">
-              <DiffIcon color="navy">
+              <DiffIcon color="amber">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
               </DiffIcon>
               <div>
-                <h3 className="text-xl font-bold text-navy mb-2">NYC & DC Presence</h3>
-                <p className="text-navy-200 leading-relaxed">
+                <h3 className="text-xl font-bold text-dark mb-2">NYC &amp; DC Presence</h3>
+                <p className="text-muted leading-relaxed">
                   Headquartered at 750 Lexington Avenue, New York with an office in Washington, DC. 150 team members, US-based teams with near-shore coverage.
                 </p>
               </div>
@@ -166,12 +167,12 @@ export default function WhyBlueOrange() {
 
             {/* Strategy-to-Build */}
             <div className="flex gap-5">
-              <DiffIcon>
+              <DiffIcon color="dbricks">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
               </DiffIcon>
               <div>
-                <h3 className="text-xl font-bold text-navy mb-2">Strategy-to-Build Pipeline</h3>
-                <p className="text-navy-200 leading-relaxed">
+                <h3 className="text-xl font-bold text-dark mb-2">Strategy-to-Build Pipeline</h3>
+                <p className="text-muted leading-relaxed">
                   95% of our strategy engagements convert to full builds. When you refer us, the deal doesn&apos;t stall in discovery — it moves to production.
                 </p>
               </div>
@@ -181,22 +182,24 @@ export default function WhyBlueOrange() {
       </section>
 
       {/* ── SPEED METRICS ────────────────────────────────────────── */}
-      <section className="gradient-navy section-padding">
-        <div className="container-max">
+      <section className="relative bg-dark section-padding">
+        {/* Dot grid overlay */}
+        <div className="absolute inset-0 dot-grid" />
+        <div className="relative container-max">
           <div className="text-center mb-12">
-            <p className="text-sm font-semibold text-orange uppercase tracking-wider mb-3">By the Numbers</p>
-            <h2 className="text-3xl sm:text-4xl font-bold text-white">Speed & Delivery</h2>
+            <p className="section-label justify-center mb-3">By the Numbers</p>
+            <h2 className="font-serif text-3xl sm:text-4xl text-white">Speed &amp; Delivery</h2>
           </div>
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
             {[
               { stat: "95%", label: "Strategy-to-Build Rate" },
-              { stat: "3–4×", label: "Faster Than Traditional Consulting" },
+              { stat: "3-4x", label: "Faster Than Traditional Consulting" },
               { stat: "250+", label: "Production Deployments" },
               { stat: "150", label: "Team Members" },
             ].map((m) => (
-              <div key={m.label} className="text-center p-6 rounded-2xl border border-white/10 bg-white/[0.03]">
-                <div className="text-3xl sm:text-4xl font-bold text-orange mb-2">{m.stat}</div>
-                <div className="text-sm text-white/60">{m.label}</div>
+              <div key={m.label} className="text-center p-6 rounded-md border border-white/10 bg-white/[0.03]">
+                <div className="text-3xl sm:text-4xl font-bold text-amber mb-2">{m.stat}</div>
+                <div className="text-sm text-white/50">{m.label}</div>
               </div>
             ))}
           </div>
@@ -207,9 +210,9 @@ export default function WhyBlueOrange() {
       <section className="bg-white section-padding">
         <div className="container-max">
           <div className="text-center mb-14">
-            <p className="text-sm font-semibold text-orange uppercase tracking-wider mb-3">Your Direct Line</p>
-            <h2 className="text-3xl sm:text-4xl font-bold text-navy mb-4">Meet the Leadership</h2>
-            <p className="text-navy-200 max-w-2xl mx-auto">
+            <p className="section-label justify-center mb-3">Your Direct Line</p>
+            <h2 className="font-serif text-3xl sm:text-4xl text-dark mb-4">Meet the Leadership</h2>
+            <p className="text-muted max-w-2xl mx-auto">
               Every executive is personally accessible — book time directly, no gatekeepers.
             </p>
           </div>
@@ -218,17 +221,19 @@ export default function WhyBlueOrange() {
             {executives.map((exec, i) => (
               <div
                 key={exec.initials}
-                className={`flex flex-col md:flex-row gap-8 items-start p-8 rounded-2xl border border-navy/5 hover:shadow-lg transition-shadow duration-300 ${
+                className={`flex flex-col md:flex-row gap-8 items-start p-8 rounded-md border border-dark/5 border-t-[3px] ${
+                  i % 2 === 0 ? "border-t-dbricks" : "border-t-amber"
+                } hover:shadow-lg transition-shadow duration-300 ${
                   i % 2 !== 0 ? "md:flex-row-reverse" : ""
                 }`}
               >
                 <div className="flex flex-col items-center shrink-0 md:w-48">
                   <HeadshotPlaceholder initials={exec.initials} large />
-                  <h3 className="text-lg font-bold text-navy mt-4 text-center">{exec.name}</h3>
-                  <p className="text-sm text-orange font-medium">{exec.title}</p>
+                  <h3 className="font-serif text-lg text-dark mt-4 text-center">{exec.name}</h3>
+                  <p className="text-sm font-mono text-dbricks">{exec.title}</p>
                 </div>
                 <div className="flex-1">
-                  <p className="text-navy-200 leading-relaxed mb-6">{exec.bio}</p>
+                  <p className="text-muted leading-relaxed mb-6">{exec.bio}</p>
                   <div className="flex flex-wrap gap-3">
                     <a
                       href={exec.calendly}
@@ -257,10 +262,10 @@ export default function WhyBlueOrange() {
       </section>
 
       {/* ── CTA ──────────────────────────────────────────────────── */}
-      <section className="bg-gray-50 section-padding">
+      <section className="bg-stone-100 section-padding">
         <div className="container-max text-center">
-          <h2 className="text-3xl sm:text-4xl font-bold text-navy mb-4">Ready to Partner?</h2>
-          <p className="text-navy-200 max-w-xl mx-auto mb-8">
+          <h2 className="font-serif text-3xl sm:text-4xl text-dark mb-4">Ready to Partner?</h2>
+          <p className="text-muted max-w-xl mx-auto mb-8">
             Book a joint call with our leadership team. We respond within 4 business hours.
           </p>
           <div className="flex flex-wrap justify-center gap-4">

@@ -62,8 +62,8 @@ export default function CaseStudies() {
           <div className="absolute -bottom-40 -left-40 w-96 h-96 rounded-full bg-dbricks/5 blur-3xl" />
         </div>
         <div className="relative container-max section-padding pt-24 sm:pt-32 lg:pt-40 pb-16">
-          <p className="text-sm font-semibold text-orange uppercase tracking-wider mb-4">Proof Points</p>
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white max-w-4xl leading-[1.1] mb-6">
+          <p className="section-label mb-4">Proof Points</p>
+          <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white max-w-4xl leading-[1.1] mb-6">
             Case{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange to-dbricks">
               Studies
@@ -76,7 +76,7 @@ export default function CaseStudies() {
       </section>
 
       {/* ── INDUSTRY FILTER ──────────────────────────────────────── */}
-      <section className="bg-white border-b border-navy/5">
+      <section className="bg-white border-b border-dark/5">
         <div className="container-max px-4 sm:px-6 lg:px-8 py-4">
           <div className="flex flex-wrap gap-2">
             {industries.map((ind, i) => (
@@ -84,8 +84,8 @@ export default function CaseStudies() {
                 key={ind}
                 className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
                   i === 0
-                    ? "bg-navy text-white"
-                    : "bg-gray-100 text-navy-200 hover:bg-gray-200"
+                    ? "bg-dark text-white"
+                    : "bg-stone-100 text-muted hover:bg-stone-200"
                 }`}
               >
                 {ind}
@@ -98,36 +98,36 @@ export default function CaseStudies() {
       {/* ── FEATURED: SUNNY SKY ──────────────────────────────────── */}
       <section className="bg-white section-padding">
         <div className="container-max">
-          <div className="p-8 md:p-12 rounded-2xl border-2 border-dbricks/10 bg-gradient-to-br from-dbricks/[0.02] to-transparent">
+          <div className="p-8 md:p-12 rounded-md border-t-[3px] border-t-dbricks border border-dark/5 bg-gradient-to-br from-dbricks/[0.02] to-transparent">
             <div className="flex items-center gap-2 mb-6">
-              <span className="px-3 py-1 text-xs font-semibold text-dbricks bg-dbricks/10 rounded-full">Featured Case Study</span>
-              <span className="px-3 py-1 text-xs font-medium text-navy/60 bg-navy/5 rounded-full">Food & Beverage</span>
+              <span className="px-3 py-1 font-mono text-[10px] tracking-[0.22em] uppercase font-semibold text-dbricks bg-dbricks/10 rounded-full">Featured Case Study</span>
+              <span className="px-3 py-1 text-xs font-medium text-dark/60 bg-dark/5 rounded-full">Food & Beverage</span>
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
               {/* Content */}
               <div>
-                <h2 className="text-3xl font-bold text-navy mb-2">Sunny Sky Products</h2>
-                <h3 className="text-lg text-navy-200 mb-6">Unified Data Platform — Transforming Operations with Databricks</h3>
+                <h2 className="font-serif text-3xl font-bold text-dark mb-2">Sunny Sky Products</h2>
+                <h3 className="text-lg text-muted mb-6">Unified Data Platform — Transforming Operations with Databricks</h3>
 
                 <div className="space-y-6 mb-8">
                   <div>
-                    <h4 className="text-sm font-bold text-navy uppercase tracking-wider mb-2">The Challenge</h4>
-                    <p className="text-navy-200 leading-relaxed">
+                    <h4 className="font-mono text-[10px] tracking-[0.22em] uppercase font-bold text-dbricks mb-2">The Challenge</h4>
+                    <p className="text-muted leading-relaxed">
                       Sunny Sky Products, a leading food and beverage manufacturer, struggled with fragmented data across multiple legacy systems. Reporting took days, operational insights were stale, and there was no unified view of production, inventory, and sales data.
                     </p>
                   </div>
                   <div>
-                    <h4 className="text-sm font-bold text-navy uppercase tracking-wider mb-2">The Approach</h4>
-                    <p className="text-navy-200 leading-relaxed">
+                    <h4 className="font-mono text-[10px] tracking-[0.22em] uppercase font-bold text-dbricks mb-2">The Approach</h4>
+                    <p className="text-muted leading-relaxed">
                       Blue Orange designed and built a unified data platform on Databricks Lakehouse, consolidating disparate data sources into a single source of truth. The team implemented Delta Lake for reliable data pipelines, Unity Catalog for governance, and real-time dashboards for operational intelligence.
                     </p>
                   </div>
                   <div>
-                    <h4 className="text-sm font-bold text-navy uppercase tracking-wider mb-2">Databricks Products Used</h4>
+                    <h4 className="font-mono text-[10px] tracking-[0.22em] uppercase font-bold text-dbricks mb-2">Databricks Products Used</h4>
                     <div className="flex flex-wrap gap-2">
                       {["Delta Lake", "Unity Catalog", "SQL Warehouses", "Workflows", "AI/BI Dashboards"].map((p) => (
-                        <span key={p} className="px-3 py-1 text-xs font-medium text-dbricks bg-dbricks/10 rounded-full border border-dbricks/20">
+                        <span key={p} className="px-3 py-1 text-xs font-medium text-dbricks bg-dbricks/10 rounded-md border border-dbricks/20">
                           {p}
                         </span>
                       ))}
@@ -153,7 +153,7 @@ export default function CaseStudies() {
 
               {/* Outcomes */}
               <div>
-                <h4 className="text-sm font-bold text-navy uppercase tracking-wider mb-4">Key Outcomes</h4>
+                <h4 className="font-mono text-[10px] tracking-[0.22em] uppercase font-bold text-dbricks mb-4">Key Outcomes</h4>
                 <div className="grid grid-cols-2 gap-4 mb-8">
                   {[
                     { stat: "3x", label: "Faster Reporting", desc: "From days to hours" },
@@ -161,16 +161,16 @@ export default function CaseStudies() {
                     { stat: "100%", label: "On Databricks", desc: "Single unified platform" },
                     { stat: "Real-time", label: "Operational Intelligence", desc: "Across manufacturing" },
                   ].map((o) => (
-                    <div key={o.label} className="p-5 rounded-xl bg-white border border-navy/5 shadow-sm">
-                      <div className="text-2xl font-bold text-orange mb-1">{o.stat}</div>
-                      <div className="text-sm font-semibold text-navy">{o.label}</div>
-                      <div className="text-xs text-navy-200 mt-1">{o.desc}</div>
+                    <div key={o.label} className="p-5 rounded-md bg-white border border-dark/5 shadow-sm">
+                      <div className="text-2xl font-bold text-dbricks mb-1">{o.stat}</div>
+                      <div className="text-sm font-semibold text-dark">{o.label}</div>
+                      <div className="text-xs text-muted mt-1">{o.desc}</div>
                     </div>
                   ))}
                 </div>
 
                 {/* Placeholder image area */}
-                <div className="relative aspect-[16/9] rounded-xl overflow-hidden bg-gradient-to-br from-navy-400/80 to-navy">
+                <div className="relative aspect-[16/9] rounded-md overflow-hidden bg-gradient-to-br from-dark/80 to-dark">
                   <svg className="absolute inset-0 w-full h-full opacity-10" viewBox="0 0 200 200">
                     <circle cx="30" cy="30" r="40" fill="#FF6B35" />
                     <circle cx="170" cy="170" r="60" fill="#FF3621" />
@@ -189,21 +189,21 @@ export default function CaseStudies() {
       </section>
 
       {/* ── ADDITIONAL CASE STUDIES ───────────────────────────────── */}
-      <section className="bg-gray-50 section-padding">
+      <section className="bg-stone-100 section-padding">
         <div className="container-max">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-navy mb-4">More Success Stories</h2>
-            <p className="text-navy-200">Placeholder case studies — full write-ups coming soon.</p>
+            <h2 className="font-serif text-3xl font-bold text-dark mb-4">More Success Stories</h2>
+            <p className="text-muted">Placeholder case studies — full write-ups coming soon.</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {additionalCases.map((cs) => (
-              <div key={cs.title} className="p-6 rounded-2xl bg-white border border-navy/5 hover:shadow-lg transition-shadow duration-300">
+              <div key={cs.title} className="p-6 rounded-md bg-white border-t-[3px] border-t-amber border border-dark/5 hover:shadow-lg transition-shadow duration-300">
                 <div className="flex items-center gap-2 mb-4">
-                  <span className="px-3 py-1 text-xs font-medium text-navy/60 bg-navy/5 rounded-full">{cs.industry}</span>
+                  <span className="px-3 py-1 text-xs font-medium text-dark/60 bg-dark/5 rounded-full">{cs.industry}</span>
                 </div>
-                <h3 className="text-xl font-bold text-navy mb-1">{cs.title}</h3>
-                <p className="text-sm text-navy-200 mb-4">{cs.subtitle}</p>
+                <h3 className="font-serif text-xl font-bold text-dark mb-1">{cs.title}</h3>
+                <p className="text-sm text-muted mb-4">{cs.subtitle}</p>
 
                 <div className="flex flex-wrap gap-1.5 mb-4">
                   {cs.products.map((p) => (
@@ -215,18 +215,18 @@ export default function CaseStudies() {
 
                 <div className="grid grid-cols-2 gap-3 mb-4">
                   {cs.metrics.map((m) => (
-                    <div key={m.label} className="p-3 rounded-lg bg-gray-50 border border-navy/5 text-center">
-                      <div className="text-xl font-bold text-navy">{m.stat}</div>
-                      <div className="text-xs text-navy-200">{m.label}</div>
+                    <div key={m.label} className="p-3 rounded-md bg-stone-100 border border-dark/5 text-center">
+                      <div className="text-xl font-bold text-amber">{m.stat}</div>
+                      <div className="text-xs text-muted">{m.label}</div>
                     </div>
                   ))}
                 </div>
 
                 <div className="flex gap-3">
-                  <button className="text-sm font-semibold text-navy-300 hover:text-navy transition-colors">
+                  <button className="text-sm font-semibold text-dark hover:text-dark/70 transition-colors">
                     Read More &rarr;
                   </button>
-                  <button className="text-sm text-navy-200 hover:text-navy transition-colors">
+                  <button className="text-sm text-muted hover:text-dark transition-colors">
                     Share
                   </button>
                 </div>
@@ -239,8 +239,8 @@ export default function CaseStudies() {
       {/* ── CTA ──────────────────────────────────────────────────── */}
       <section className="bg-white section-padding">
         <div className="container-max text-center">
-          <h2 className="text-3xl sm:text-4xl font-bold text-navy mb-4">Want a Case Study for Your Vertical?</h2>
-          <p className="text-navy-200 max-w-xl mx-auto mb-8">
+          <h2 className="font-serif text-3xl sm:text-4xl font-bold text-dark mb-4">Want a Case Study for Your Vertical?</h2>
+          <p className="text-muted max-w-xl mx-auto mb-8">
             We can walk you through relevant examples for your specific customer. Book a call with our team.
           </p>
           <Link href="/contact" className="btn-primary text-base px-8 py-4">

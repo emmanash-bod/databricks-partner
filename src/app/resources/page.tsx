@@ -110,7 +110,7 @@ function CopyButton({ text }: { text: string }) {
   return (
     <button
       onClick={handleCopy}
-      className={`inline-flex items-center px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-200 ${
+      className={`inline-flex items-center px-4 py-2 rounded text-sm font-semibold transition-all duration-200 ${
         copied
           ? "bg-green-100 text-green-700 border border-green-200"
           : "bg-orange text-white hover:bg-orange-500 hover:shadow-lg hover:shadow-orange/25"
@@ -139,14 +139,14 @@ export default function Resources() {
   return (
     <>
       {/* ── HERO ─────────────────────────────────────────────────── */}
-      <section className="relative gradient-hero overflow-hidden">
+      <section className="relative gradient-dark overflow-hidden">
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute -top-40 -right-40 w-96 h-96 rounded-full bg-orange/5 blur-3xl" />
           <div className="absolute -bottom-40 -left-40 w-96 h-96 rounded-full bg-dbricks/5 blur-3xl" />
         </div>
         <div className="relative container-max section-padding pt-24 sm:pt-32 lg:pt-40 pb-16">
-          <p className="text-sm font-semibold text-orange uppercase tracking-wider mb-4">Co-Sell Toolkit</p>
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white max-w-4xl leading-[1.1] mb-6">
+          <p className="font-mono text-[10px] tracking-[0.22em] uppercase text-dbricks mb-4">Co-Sell Toolkit</p>
+          <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white max-w-4xl leading-[1.1] mb-6">
             Resources &{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange to-dbricks">
               Assets
@@ -162,17 +162,18 @@ export default function Resources() {
       <section className="bg-white section-padding">
         <div className="container-max">
           <div className="text-center mb-12">
-            <p className="text-sm font-semibold text-orange uppercase tracking-wider mb-3">Downloads</p>
-            <h2 className="text-3xl sm:text-4xl font-bold text-navy mb-4">Downloadable Assets</h2>
-            <p className="text-navy-200">Single-click downloads. No forms. No gates.</p>
+            <p className="font-mono text-[10px] tracking-[0.22em] uppercase text-dbricks mb-3">Downloads</p>
+            <h2 className="font-serif text-3xl sm:text-4xl font-bold text-dark mb-4">Downloadable Assets</h2>
+            <p className="text-muted">Single-click downloads. No forms. No gates.</p>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
               {
                 title: "Co-Sell Deck",
-                desc: "Co-branded Blue Orange × Databricks overview deck. Differentiators, offers, case studies, team.",
+                desc: "Co-branded Blue Orange x Databricks overview deck. Differentiators, offers, case studies, team.",
                 format: "PPTX",
+                accent: "border-t-dbricks",
                 icon: (
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
                 ),
@@ -181,6 +182,7 @@ export default function Resources() {
                 title: "One-Pager",
                 desc: "Single-page PDF summarizing Blue Orange's Databricks practice, key stats, and contact info.",
                 format: "PDF",
+                accent: "border-t-orange",
                 icon: (
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                 ),
@@ -189,6 +191,7 @@ export default function Resources() {
                 title: "Battle Cards",
                 desc: "Competitive positioning vs. other Databricks partners. Why Blue Orange wins on key dimensions.",
                 format: "PDF",
+                accent: "border-t-amber",
                 icon: (
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
                 ),
@@ -197,21 +200,22 @@ export default function Resources() {
                 title: "Qualification Checklist",
                 desc: "Quick guide for AEs to identify good-fit opportunities for Blue Orange engagement.",
                 format: "PDF",
+                accent: "border-t-dbricks",
                 icon: (
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
                 ),
               },
             ].map((asset) => (
-              <div key={asset.title} className="p-6 rounded-2xl border border-navy/5 bg-white hover:shadow-lg transition-shadow duration-300 flex flex-col">
-                <div className="w-12 h-12 rounded-xl bg-navy/5 flex items-center justify-center mb-4">
-                  <svg className="w-6 h-6 text-navy-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <div key={asset.title} className={`p-6 rounded-md border border-dark/5 border-t-3 ${asset.accent} bg-white hover:shadow-lg transition-shadow duration-300 flex flex-col`}>
+                <div className="w-12 h-12 rounded-md bg-dark/5 flex items-center justify-center mb-4">
+                  <svg className="w-6 h-6 text-muted" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     {asset.icon}
                   </svg>
                 </div>
-                <h3 className="text-lg font-bold text-navy mb-1">{asset.title}</h3>
-                <span className="text-xs font-semibold text-orange mb-2">{asset.format}</span>
-                <p className="text-sm text-navy-200 leading-relaxed mb-4 flex-1">{asset.desc}</p>
-                <button className="inline-flex items-center justify-center w-full px-4 py-2.5 rounded-lg text-sm font-semibold text-white bg-navy hover:bg-navy-400 transition-colors">
+                <h3 className="font-serif text-lg font-bold text-dark mb-1">{asset.title}</h3>
+                <span className="font-mono text-[10px] tracking-[0.22em] uppercase text-dbricks mb-2">{asset.format}</span>
+                <p className="text-sm text-muted leading-relaxed mb-4 flex-1">{asset.desc}</p>
+                <button className="inline-flex items-center justify-center w-full px-4 py-2.5 rounded text-sm font-semibold text-white bg-dark hover:bg-dark/80 transition-colors">
                   <svg className="w-4 h-4 mr-1.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
                   </svg>
@@ -224,28 +228,28 @@ export default function Resources() {
       </section>
 
       {/* ── EMAIL TEMPLATES ──────────────────────────────────────── */}
-      <section className="bg-gray-50 section-padding">
+      <section className="bg-stone-100 section-padding">
         <div className="container-max">
           <div className="text-center mb-12">
-            <p className="text-sm font-semibold text-orange uppercase tracking-wider mb-3">Ready to Send</p>
-            <h2 className="text-3xl sm:text-4xl font-bold text-navy mb-4">Email Templates</h2>
-            <p className="text-navy-200 max-w-2xl mx-auto">
+            <p className="font-mono text-[10px] tracking-[0.22em] uppercase text-dbricks mb-3">Ready to Send</p>
+            <h2 className="font-serif text-3xl sm:text-4xl font-bold text-dark mb-4">Email Templates</h2>
+            <p className="text-muted max-w-2xl mx-auto">
               Pre-written emails you can forward to customers. Copy with one click, customize the brackets, and send.
             </p>
           </div>
 
           <div className="space-y-6">
             {emailTemplates.map((tmpl) => (
-              <div key={tmpl.title} className="p-6 md:p-8 rounded-2xl bg-white border border-navy/5">
+              <div key={tmpl.title} className="p-6 md:p-8 rounded-md bg-white border border-dark/5">
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-4">
                   <div>
-                    <h3 className="text-lg font-bold text-navy">{tmpl.title}</h3>
-                    <p className="text-sm text-navy-200">Subject: {tmpl.subject}</p>
+                    <h3 className="font-serif text-lg font-bold text-dark">{tmpl.title}</h3>
+                    <p className="text-sm text-muted">Subject: {tmpl.subject}</p>
                   </div>
                   <CopyButton text={`Subject: ${tmpl.subject}\n\n${tmpl.body}`} />
                 </div>
-                <div className="p-4 rounded-xl bg-gray-50 border border-navy/5">
-                  <pre className="text-sm text-navy-200 whitespace-pre-wrap font-sans leading-relaxed">
+                <div className="p-4 rounded-md bg-stone-100 border border-dark/5">
+                  <pre className="text-sm text-muted whitespace-pre-wrap font-sans leading-relaxed">
                     {tmpl.body}
                   </pre>
                 </div>
@@ -258,8 +262,8 @@ export default function Resources() {
       {/* ── CTA ──────────────────────────────────────────────────── */}
       <section className="bg-white section-padding">
         <div className="container-max text-center">
-          <h2 className="text-3xl sm:text-4xl font-bold text-navy mb-4">Need Something Custom?</h2>
-          <p className="text-navy-200 max-w-xl mx-auto mb-8">
+          <h2 className="font-serif text-3xl sm:text-4xl font-bold text-dark mb-4">Need Something Custom?</h2>
+          <p className="text-muted max-w-xl mx-auto mb-8">
             We can create custom assets for specific deals. Talk to our team.
           </p>
           <a href="/contact" className="btn-primary text-base px-8 py-4">

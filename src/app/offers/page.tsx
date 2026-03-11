@@ -4,7 +4,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Offers & Accelerators | Blue Orange Digital × Databricks",
   description:
-    "Ready-made packages Databricks AEs can pitch in 30 seconds — Scout, Blueprint, LakehouseIQ, Strategy Sprint, Migration, Mosaic AI.",
+    "Ready-made packages Databricks AEs can pitch in 30 seconds — Scout, Blueprint, LakehouseIQ Assessment, Strategy Sprint, Migration, Mosaic AI.",
 };
 
 const offers = [
@@ -115,10 +115,10 @@ export default function Offers() {
           <div className="absolute -bottom-40 -left-40 w-96 h-96 rounded-full bg-dbricks/5 blur-3xl" />
         </div>
         <div className="relative container-max section-padding pt-24 sm:pt-32 lg:pt-40 pb-16">
-          <p className="text-sm font-semibold text-orange uppercase tracking-wider mb-4">
+          <p className="section-label mb-4">
             Ready-Made Packages
           </p>
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white max-w-4xl leading-[1.1] mb-6">
+          <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white max-w-4xl leading-[1.1] mb-6">
             Offers &{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange to-dbricks">
               Accelerators
@@ -137,28 +137,28 @@ export default function Offers() {
             {offers.map((offer) => {
               const isDbricks = offer.badgeColor === "dbricks";
               const isOrange = offer.badgeColor === "orange";
-              const borderClass = isDbricks
-                ? "border-2 border-dbricks/20 bg-gradient-to-br from-dbricks/[0.02] to-transparent"
-                : isOrange
-                ? "border-2 border-orange/20 bg-gradient-to-br from-orange/[0.03] to-transparent"
-                : "border border-navy/5 bg-white";
-              const iconBg = isDbricks ? "bg-dbricks/10" : isOrange ? "bg-orange/10" : "bg-navy/5";
-              const iconColor = isDbricks ? "text-dbricks" : isOrange ? "text-orange" : "text-navy-300";
+              const borderClass = offer.highlight
+                ? isDbricks
+                  ? "border-t-[3px] border-t-dbricks border border-dark/5 bg-gradient-to-br from-dbricks/[0.02] to-transparent"
+                  : "border-t-[3px] border-t-orange border border-dark/5 bg-gradient-to-br from-orange/[0.03] to-transparent"
+                : "border border-dark/5 bg-white";
+              const iconBg = isDbricks ? "bg-dbricks/10" : isOrange ? "bg-orange/10" : "bg-dark/5";
+              const iconColor = isDbricks ? "text-dbricks" : isOrange ? "text-orange" : "text-muted";
               const ctaColor = isDbricks
                 ? "text-dbricks hover:text-dbricks-600"
                 : isOrange
                 ? "text-orange hover:text-orange-600"
-                : "text-navy-300 hover:text-navy";
+                : "text-dark hover:text-dark/70";
 
               return (
                 <div
                   key={offer.name}
-                  className={`relative p-6 rounded-2xl hover:shadow-xl transition-all duration-300 ${borderClass} flex flex-col`}
+                  className={`relative p-6 rounded-md hover:shadow-xl transition-all duration-300 ${borderClass} flex flex-col`}
                 >
                   {offer.badge && (
                     <div className="absolute top-4 right-4">
                       <span
-                        className={`inline-flex items-center px-2.5 py-1 rounded-full text-[10px] font-bold ${
+                        className={`inline-flex items-center px-2.5 py-1 rounded-full font-mono text-[10px] tracking-[0.22em] uppercase font-bold ${
                           isDbricks
                             ? "bg-dbricks/10 text-dbricks border border-dbricks/20"
                             : "bg-orange/10 text-orange border border-orange/20"
@@ -169,23 +169,23 @@ export default function Offers() {
                     </div>
                   )}
 
-                  <div className={`w-12 h-12 rounded-xl ${iconBg} flex items-center justify-center mb-4`}>
+                  <div className={`w-12 h-12 rounded-md ${iconBg} flex items-center justify-center mb-4`}>
                     <svg className={`w-6 h-6 ${iconColor}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       {offer.icon}
                     </svg>
                   </div>
 
-                  <h3 className="text-lg font-bold text-navy mb-2">{offer.name}</h3>
-                  <p className="text-sm text-navy-200 leading-relaxed mb-4 flex-1">{offer.description}</p>
+                  <h3 className="font-serif text-lg font-bold text-dark mb-2">{offer.name}</h3>
+                  <p className="text-sm text-muted leading-relaxed mb-4 flex-1">{offer.description}</p>
 
                   {/* Key stat */}
-                  <div className="p-3 rounded-xl bg-gray-50 border border-navy/5 mb-4">
-                    <div className="text-lg font-bold text-navy">{offer.stat}</div>
-                    <div className="text-xs text-navy-200">{offer.statDesc}</div>
+                  <div className="p-3 rounded-md bg-stone-100 border border-dark/5 mb-4">
+                    <div className="text-lg font-bold text-dark">{offer.stat}</div>
+                    <div className="text-xs text-muted">{offer.statDesc}</div>
                   </div>
 
                   {offer.submissionNote && (
-                    <p className="text-[11px] text-navy-200/60 mb-3">
+                    <p className="text-[11px] text-muted/60 mb-3">
                       {offer.submissionNote}{" "}
                       <a href={offer.submissionLink} className="text-dbricks hover:underline" target="_blank" rel="noopener noreferrer">
                         Learn more
@@ -204,12 +204,12 @@ export default function Offers() {
       </section>
 
       {/* ── BOTTOM CTA ───────────────────────────────────────────── */}
-      <section className="bg-gray-50 section-padding">
+      <section className="bg-stone-100 section-padding">
         <div className="container-max text-center">
-          <h2 className="text-3xl sm:text-4xl font-bold text-navy mb-4">
+          <h2 className="font-serif text-3xl sm:text-4xl font-bold text-dark mb-4">
             Not Sure Which Offer Fits?
           </h2>
-          <p className="text-navy-200 max-w-xl mx-auto mb-8">
+          <p className="text-muted max-w-xl mx-auto mb-8">
             Talk to our team — we&apos;ll help you match the right offer to your customer&apos;s needs in one call.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
