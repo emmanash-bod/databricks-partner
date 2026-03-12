@@ -4,7 +4,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Case Studies | Blue Orange Digital × Databricks",
   description:
-    "Real results from Blue Orange + Databricks engagements — Sunny Sky Products and more.",
+    "Real results from Blue Orange + Databricks engagements — Sunny Sky Products, DentalXchange, Core Spaces, and more.",
 };
 
 const additionalCases = [
@@ -50,7 +50,7 @@ const additionalCases = [
   },
 ];
 
-const industries = ["All", "Food & Beverage", "Retail", "Financial Services", "Healthcare", "Manufacturing"];
+const industries = ["All", "Food & Beverage", "Healthcare", "Real Estate", "Retail", "Financial Services", "Manufacturing"];
 
 export default function CaseStudies() {
   return (
@@ -160,6 +160,190 @@ export default function CaseStudies() {
                     { stat: "40%", label: "Cost Reduction", desc: "In data infrastructure" },
                     { stat: "100%", label: "On Databricks", desc: "Single unified platform" },
                     { stat: "Real-time", label: "Operational Intelligence", desc: "Across manufacturing" },
+                  ].map((o) => (
+                    <div key={o.label} className="p-5 rounded-md bg-white border border-dark/5 shadow-sm">
+                      <div className="text-2xl font-bold text-dbricks mb-1">{o.stat}</div>
+                      <div className="text-sm font-semibold text-dark">{o.label}</div>
+                      <div className="text-xs text-muted mt-1">{o.desc}</div>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Placeholder image area */}
+                <div className="relative aspect-[16/9] rounded-md overflow-hidden bg-gradient-to-br from-dark/80 to-dark">
+                  <svg className="absolute inset-0 w-full h-full opacity-10" viewBox="0 0 200 200">
+                    <circle cx="30" cy="30" r="40" fill="#FF6B35" />
+                    <circle cx="170" cy="170" r="60" fill="#FF3621" />
+                    <rect x="80" y="60" width="80" height="80" rx="8" fill="#FF6B35" opacity="0.5" />
+                  </svg>
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <span className="text-white/30 text-xs font-medium uppercase tracking-wider">
+                      Case Study Visual — Placeholder
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── FEATURED: DENTALXCHANGE ──────────────────────────────── */}
+      <section className="bg-stone-50 section-padding">
+        <div className="container-max">
+          <div className="p-8 md:p-12 rounded-md border-t-[3px] border-t-dbricks border border-dark/5 bg-gradient-to-br from-dbricks/[0.02] to-transparent">
+            <div className="flex items-center gap-2 mb-6">
+              <span className="px-3 py-1 font-mono text-[10px] tracking-[0.22em] uppercase font-semibold text-dbricks bg-dbricks/10 rounded-full">Featured Case Study</span>
+              <span className="px-3 py-1 text-xs font-medium text-dark/60 bg-dark/5 rounded-full">Healthcare</span>
+            </div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
+              {/* Content */}
+              <div>
+                <h2 className="font-serif text-3xl font-bold text-dark mb-2">DentalXchange</h2>
+                <h3 className="text-lg text-muted mb-6">Unified Data Platform — Modernizing Dental Claims Processing with Databricks</h3>
+
+                <div className="space-y-6 mb-8">
+                  <div>
+                    <h4 className="font-mono text-[10px] tracking-[0.22em] uppercase font-bold text-dbricks mb-2">The Challenge</h4>
+                    <p className="text-muted leading-relaxed">
+                      DentalXchange, a leading dental claims clearinghouse backed by KKR, processed millions of insurance transactions across fragmented legacy systems — SQL Server, SSIS packages, and .NET applications. Billing cycles ran 10–20 days, operational reporting depended on brittle pipelines, and there was no unified view of claims, provider, and financial data.
+                    </p>
+                  </div>
+                  <div>
+                    <h4 className="font-mono text-[10px] tracking-[0.22em] uppercase font-bold text-dbricks mb-2">The Approach</h4>
+                    <p className="text-muted leading-relaxed">
+                      Blue Orange designed and built a unified data platform on Databricks Lakehouse, consolidating data from SQL Server, Postgres, and NetSuite into a single source of truth. The team implemented medallion architecture with Delta Lake, deployed Unity Catalog for governance, and established Master Data Management to standardize provider and payer records across the organization.
+                    </p>
+                  </div>
+                  <div>
+                    <h4 className="font-mono text-[10px] tracking-[0.22em] uppercase font-bold text-dbricks mb-2">Databricks Products Used</h4>
+                    <div className="flex flex-wrap gap-2">
+                      {["Delta Lake", "Unity Catalog", "SQL Warehouses", "Workflows", "AI/BI Dashboards"].map((p) => (
+                        <span key={p} className="px-3 py-1 text-xs font-medium text-dbricks bg-dbricks/10 rounded-md border border-dbricks/20">
+                          {p}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+
+                <div className="flex flex-wrap gap-3">
+                  <button className="btn-primary text-sm">
+                    <svg className="w-4 h-4 mr-1.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                    </svg>
+                    Download PDF
+                  </button>
+                  <button className="btn-outline text-sm">
+                    <svg className="w-4 h-4 mr-1.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" />
+                    </svg>
+                    Share This Case Study
+                  </button>
+                </div>
+              </div>
+
+              {/* Outcomes */}
+              <div>
+                <h4 className="font-mono text-[10px] tracking-[0.22em] uppercase font-bold text-dbricks mb-4">Key Outcomes</h4>
+                <div className="grid grid-cols-2 gap-4 mb-8">
+                  {[
+                    { stat: "30–60x", label: "Faster Queries", desc: "Vs. legacy SQL Server" },
+                    { stat: "320+", label: "Tables Consolidated", desc: "Across 3 source systems" },
+                    { stat: "100%", label: "On Databricks", desc: "Single unified platform" },
+                    { stat: "5-day", label: "Billing Cycle Target", desc: "Down from 10–20 days" },
+                  ].map((o) => (
+                    <div key={o.label} className="p-5 rounded-md bg-white border border-dark/5 shadow-sm">
+                      <div className="text-2xl font-bold text-dbricks mb-1">{o.stat}</div>
+                      <div className="text-sm font-semibold text-dark">{o.label}</div>
+                      <div className="text-xs text-muted mt-1">{o.desc}</div>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Video */}
+                <div className="relative aspect-[16/9] rounded-md overflow-hidden">
+                  <video
+                    className="w-full h-full object-cover rounded-md"
+                    controls
+                    playsInline
+                    poster=""
+                  >
+                    <source src="https://vxqhwkssnquxklzp.public.blob.vercel-storage.com/dental-xchange.mp4" type="video/mp4" />
+                  </video>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── FEATURED: CORE SPACES ────────────────────────────────── */}
+      <section className="bg-white section-padding">
+        <div className="container-max">
+          <div className="p-8 md:p-12 rounded-md border-t-[3px] border-t-dbricks border border-dark/5 bg-gradient-to-br from-dbricks/[0.02] to-transparent">
+            <div className="flex items-center gap-2 mb-6">
+              <span className="px-3 py-1 font-mono text-[10px] tracking-[0.22em] uppercase font-semibold text-dbricks bg-dbricks/10 rounded-full">Featured Case Study</span>
+              <span className="px-3 py-1 text-xs font-medium text-dark/60 bg-dark/5 rounded-full">Real Estate</span>
+            </div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
+              {/* Content */}
+              <div>
+                <h2 className="font-serif text-3xl font-bold text-dark mb-2">Core Spaces</h2>
+                <h3 className="text-lg text-muted mb-6">Data Platform Optimization & FP&A Analytics — Cutting Costs and Unlocking Insights with Databricks</h3>
+
+                <div className="space-y-6 mb-8">
+                  <div>
+                    <h4 className="font-mono text-[10px] tracking-[0.22em] uppercase font-bold text-dbricks mb-2">The Challenge</h4>
+                    <p className="text-muted leading-relaxed">
+                      Core Spaces, a leading student housing developer managing 65+ properties and 113,000+ leases, had built an initial Databricks environment with 50+ sequential DLT pipelines processing 100,000+ rows hourly. While functional, the architecture was over-segmented — driving up compute costs, limiting parallelism, and making pipeline maintenance complex. Separately, FP&A reporting across Yardi and financial systems remained manual and disconnected.
+                    </p>
+                  </div>
+                  <div>
+                    <h4 className="font-mono text-[10px] tracking-[0.22em] uppercase font-bold text-dbricks mb-2">The Approach</h4>
+                    <p className="text-muted leading-relaxed">
+                      Blue Orange conducted a comprehensive technical assessment of Core Spaces&apos; Databricks environment, benchmarking cost and performance in a parallel catalog to safely prove optimizations without touching production. The team consolidated 50+ per-table pipelines into a single unified pipeline, restructured the medallion architecture, and implemented SCD Type II processing with DLT limited to the Bronze layer and SQL/Python notebooks for Silver and Gold. Following the optimization work, Blue Orange extended the engagement to build FP&A and debt reporting dashboards in Power BI connected to Databricks SQL Warehouses.
+                    </p>
+                  </div>
+                  <div>
+                    <h4 className="font-mono text-[10px] tracking-[0.22em] uppercase font-bold text-dbricks mb-2">Databricks Products Used</h4>
+                    <div className="flex flex-wrap gap-2">
+                      {["Delta Lake", "Delta Live Tables", "SQL Warehouses", "Workflows", "AI/BI Dashboards", "Unity Catalog"].map((p) => (
+                        <span key={p} className="px-3 py-1 text-xs font-medium text-dbricks bg-dbricks/10 rounded-md border border-dbricks/20">
+                          {p}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+
+                <div className="flex flex-wrap gap-3">
+                  <button className="btn-primary text-sm">
+                    <svg className="w-4 h-4 mr-1.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                    </svg>
+                    Download PDF
+                  </button>
+                  <button className="btn-outline text-sm">
+                    <svg className="w-4 h-4 mr-1.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" />
+                    </svg>
+                    Share This Case Study
+                  </button>
+                </div>
+              </div>
+
+              {/* Outcomes */}
+              <div>
+                <h4 className="font-mono text-[10px] tracking-[0.22em] uppercase font-bold text-dbricks mb-4">Key Outcomes</h4>
+                <div className="grid grid-cols-2 gap-4 mb-8">
+                  {[
+                    { stat: "70%", label: "Cost Reduction", desc: "$154/day to $45/day" },
+                    { stat: "50+", label: "Pipelines Consolidated", desc: "Into a single unified pipeline" },
+                    { stat: "3", label: "Executive Dashboards", desc: "Debt, FP&A, Capital Markets" },
+                    { stat: "100%", label: "On Databricks", desc: "Single unified platform" },
                   ].map((o) => (
                     <div key={o.label} className="p-5 rounded-md bg-white border border-dark/5 shadow-sm">
                       <div className="text-2xl font-bold text-dbricks mb-1">{o.stat}</div>
